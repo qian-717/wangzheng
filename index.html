@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简历表</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .resume-container {
+            width: 750px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .resume-header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .resume-section {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .resume-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section-label {
+            background-color: #c0c0c0;
+            padding: 15px;
+            width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .section-content {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .icon {
+            margin-right: 8px;
+            color: #555;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* 轮播图样式 */
+        .photo-container {
+            width: 136px;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        
+        .photo-slider {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .photo:hover {
+            transform: scale(1.05);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: white;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .multi-column {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .column-item {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 10px;
+        }
+        
+        .project-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            background-color: #e9e9e9;
+            transform: scale(1.02);
+        }
+        
+        .self-intro {
+            line-height: 1.6;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <div class="resume-header">个人简历</div>
+        
+        <!-- 基本信息行1 -->
+        <div class="resume-section">
+            <div class="section-label">姓名</div>
+            <div class="section-content">王政</div>
+            
+            <div class="section-label">性别</div>
+            <div class="section-content">男</div>
+            
+            <div class="section-label">年龄</div>
+            <div class="section-content">20</div>
+            
+            <div class="photo-container" id="photoSlider">
+                <div class="photo-slider">
+                    <div class="photo-slide">
+                        <img src="https://img0.baidu.com/it/u=3125720667,3310351231&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" class="photo">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="https://img1.baidu.com/it/u=1031340630,2928358713&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" class="photo">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="https://img2.baidu.com/it/u=1780450237,1384311101&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" class="photo">
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-index="0"></div>
+                    <div class="slider-dot" data-index="1"></div>
+                    <div class="slider-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 基本信息行2 -->
+        <div class="resume-section">
+            <div class="section-label"><i class="fas fa-home icon"></i>籍贯</div>
+            <div class="section-content">崂山</div>
+            
+            <div class="section-label"><i class="fas fa-phone icon"></i>联系电话</div>
+            <div class="section-content">13385322377</div>
+            
+            <div class="section-label"><i class="fas fa-envelope icon"></i>电子邮箱</div>
+            <div class="section-content">3153473654@qq.com</div>
+        </div>
+        
+        <!-- 基本信息行3 -->
+        <div class="resume-section">
+            <div class="section-label"><i class="fas fa-graduation-cap icon"></i>学历</div>
+            <div class="section-content">高中</div>
+            
+            <div class="section-label"><i class="fas fa-heartbeat icon"></i>健康状况</div>
+            <div class="section-content">良好</div>
+            
+            <div class="section-label"><i class="fas fa-heart icon"></i>婚姻状况</div>
+            <div class="section-content">未婚</div>
+        </div>
+        
+        <!-- 求职意向 -->
+        <div class="resume-section">
+            <div class="section-label">求职意向</div>
+            <div class="section-content">寻求一份前端开发工程师的工作</div>
+            
+            <div class="section-label">专业</div>
+            <div class="section-content">软件工程C</div>
+            
+            <div class="section-label">毕业院校</div>
+            <div class="section-content">烟台理工学院</div>
+        </div>
+        
+        <!-- 技能证书 -->
+        <div class="resume-section">
+            <div class="section-label">技能证书</div>
+            <div class="section-content full-width">计算机系统操作师</div>
+        </div>
+        
+        <!-- 个人特长 -->
+        <div class="resume-section">
+            <div class="section-label">个人特长与爱好</div>
+            <div class="section-content full-width">
+                <div class="multi-column">
+                    <div class="column-item"><i class="fas fa-code icon"></i>编程</div>
+                    <div class="column-item"><i class="fas fa-gamepad icon"></i>游戏</div>
+                    <div class="column-item"><i class="fas fa-futbol icon"></i>足球</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目经历 -->
+        <div class="resume-section">
+            <div class="section-label">项目经历</div>
+            <div class="section-content full-width">
+                <div class="project-item">
+                    <i class="fas fa-project-diagram icon"></i><strong>智能学生选课系统</strong>
+                </div>
+                <div class="project-item">
+                    <i class="fas fa-project-diagram icon"></i><strong>停车场管理系统</strong>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 自我评价 -->
+        <div class="resume-section">
+            <div class="section-label">自我评价</div>
+            <div class="section-content full-width">
+                <p class="self-intro">
+                    我是一名热爱编程的学生，具备扎实的编程基础和良好的团队合作能力。在过去的学习和工作中，我积累了丰富的项目经验，能够独立完成网页的设计与开发。我注重细节，追求代码的质量和可维护性。同时，我具备较强的学习能力，能够快速掌握新技术并应用到实际项目中。我相信这些经验将为我未来的职业发展奠定坚实的基础。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.photo-slider');
+            const dots = document.querySelectorAll('.slider-dot');
+            const photoContainer = document.getElementById('photoSlider');
+            const totalSlides = document.querySelectorAll('.photo-slide').length;
+            let currentIndex = 0;
+            let hoverTimer;
+            
+            // 鼠标悬停时切换图片
+            photoContainer.addEventListener('mouseenter', function() {
+                clearInterval(hoverTimer);
+                hoverTimer = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateSlider();
+                }, 1500); // 1.5秒切换一次
+            });
+            
+            // 鼠标离开时停止切换
+            photoContainer.addEventListener('mouseleave', function() {
+                clearInterval(hoverTimer);
+            });
+            
+            // 点击小圆点切换图片
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentIndex = parseInt(this.dataset.index);
+                    updateSlider();
+                });
+            });
+            
+            function updateSlider() {
+                // 更新滑块位置
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新小圆点状态
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
